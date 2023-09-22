@@ -7,8 +7,8 @@ import { CobsFarmLogoNav } from './image'
 const navigation = [
     { name: 'Overview', href: '#overview', current: false },
     { name: 'Alpha Farms', href: 'https://www.cobmin.com/posts/Discover-Cobs-Farm', current: false },
-    { name: 'Creators', href: '#', current: false },
-    { name: 'News', href: '#', current: false },
+    // { name: 'Creators', href: '#', current: false },
+    // { name: 'News', href: '#', current: false },
 ]
 
 function classNames(...classes: (string | undefined)[]) {
@@ -58,7 +58,7 @@ export default function Navbar() {
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <ConnectButton />
+                                <ConnectButton showBalance={false} accountStatus="avatar" label="Sign in" />
                             </div>
 
 

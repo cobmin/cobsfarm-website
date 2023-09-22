@@ -12,10 +12,11 @@ export default function Hero() {
     ];
     useEffect(() => {
         const timer = setInterval(() => {
-            setQuoteIndex((prevIndex) => (prevIndex + 1));
-        }, 4000); // Change the quote every 5000 milliseconds (5 seconds)
+            setQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
+        }, 4000);
         return () => clearInterval(timer);
     }, []);
+
     return (
         <div className="bg-black relative">
             <div className="absolute inset-0 z-0">
@@ -38,11 +39,12 @@ export default function Hero() {
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <a
                                 href="https://www.cobmin.com/posts/Discover-Cobs-Farm"
-                                className="rounded-md bg-green-700 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-green-600"
+                                className="rounded-md px-8 py-4 text-lg font-semibold text-white shadow-lg bg-[#718f3f] hover:bg-[#85a24a]"
                             >
                                 Get started
                             </a>
                         </div>
+
                         <div className="mt-10 flex justify-center space-x-4">
                             <ComputerDesktopIcon className="h-10 w-10 text-gray-200" aria-hidden="true" />
                             <DevicePhoneMobileIcon className="h-10 w-10 text-gray-200" aria-hidden="true" />

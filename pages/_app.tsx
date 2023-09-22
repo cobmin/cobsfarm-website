@@ -1,31 +1,26 @@
 import '../styles/globals.css';
 import '@rainbow-me/rainbowkit/styles.css';
-import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { getDefaultWallets, RainbowKitProvider, darkTheme, AvatarComponent } from '@rainbow-me/rainbowkit';
 import type { AppProps } from 'next/app';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import {
-  arbitrum,
   goerli,
   mainnet,
-  optimism,
-  polygon,
-  base,
-  zora,
 } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
+import { alchemyProvider } from 'wagmi/providers/alchemy'
 import Layout from '../components/layout';
+import { generateColorFromAddress } from '../utils';
+import { UserIcon } from '@heroicons/react/20/solid'
+
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
     mainnet,
-    polygon,
-    optimism,
-    arbitrum,
-    base,
-    zora,
     ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : []),
   ],
-  [publicProvider()]
+  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID || "defaultApiKey" }),
+  publicProvider(),]
 );
 
 const { connectors } = getDefaultWallets({
@@ -41,10 +36,28 @@ const wagmiConfig = createConfig({
   webSocketPublicClient,
 });
 
+const CustomAvatar: AvatarComponent = ({ address, ensImage, size }) => {
+  const color = generateColorFromAddress(address);
+  return ensImage ? (
+    <img
+      src={ensImage}
+      width={size}
+      height={size}
+      style={{ borderRadius: 999 }}
+    />
+  ) : (
+    <UserIcon />
+  );
+};
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains}>
+      <RainbowKitProvider avatar={CustomAvatar} coolMode theme={darkTheme({
+        accentColor: '#718f3f',
+        accentColorForeground: '#ccd0d7',
+        overlayBlur: 'small',
+      })} chains={chains} >
         <Layout>
           <Component {...pageProps} />
         </Layout>
@@ -52,5 +65,4 @@ function MyApp({ Component, pageProps }: AppProps) {
     </WagmiConfig>
   );
 }
-
 export default MyApp;
