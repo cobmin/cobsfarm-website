@@ -12,7 +12,7 @@ export default function Hero() {
     ];
     useEffect(() => {
         const timer = setInterval(() => {
-            setQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
+            setQuoteIndex((prevIndex) => (prevIndex + 1));
         }, 4000); // Change the quote every 5000 milliseconds (5 seconds)
         return () => clearInterval(timer);
     }, []);
@@ -30,7 +30,7 @@ export default function Hero() {
                     </div>
                     <div className="text-center">
                         <h1 className="text-5xl font-extrabold tracking-tight text-gray-200 sm:text-7xl">
-                            Welcome to Cob's Farm
+                            Welcome to Cob&apos;s Farm
                         </h1>
                         <p className="mt-6 text-xl font-semibold leading-8 text-gray-300">
                             Relaxing Action RPG

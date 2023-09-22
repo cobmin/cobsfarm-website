@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
+import { CobsFarmLogoNav } from './image'
 
 const navigation = [
     { name: 'Overview', href: '#overview', current: false },
@@ -36,11 +37,7 @@ export default function Navbar() {
                             </div>
                             <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
-                                    <img
-                                        className="h-8 w-auto"
-                                        src="/logo.png"
-                                        alt="Cob's Farm Logo"
-                                    />
+                                    <CobsFarmLogoNav />
                                 </div>
                                 <div className="hidden md:ml-6 md:block">
                                     <div className="flex space-x-4">

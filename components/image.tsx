@@ -18,6 +18,14 @@ export function CobsFarmLogo() {
         <Image src={CobsLogo} alt="Cob's Farm Logo" />
     )
 }
+export function CobsFarmLogoNav() {
+    return (
+        <Image src={CobsLogo} className="h-8 w-auto"
+            alt="Cob's Farm Logo"
+        />
+    )
+}
+
 
 export function CobsEntrance() {
     return (
