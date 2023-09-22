@@ -55,18 +55,20 @@ export default function Features() {
                     {/* Text moved to second column */}
                     <div className="lg:pl-8 lg:pt-4">
                         {/* Tab selection */}
-                        <button
-                            className={`mr-4 text-xl font-semibold p-2 relative ${selectedTab === 'gameplay' ? 'custom-underline' : ''}`}
-                            onClick={() => setSelectedTab('gameplay')}
-                        >
-                            Gameplay Dynamics
-                        </button>
-                        <button
-                            className={`text-xl font-semibold p-2 relative ${selectedTab === 'story' ? 'custom-underline' : ''}`}
-                            onClick={() => setSelectedTab('story')}
-                        >
-                            Features & Updates
-                        </button>
+                        <div className="text-center">
+                            <button
+                                className={`inline-block mr-4 text-xl font-semibold p-2 relative ${selectedTab === 'gameplay' ? 'custom-underline' : ''}`}
+                                onClick={() => setSelectedTab('gameplay')}
+                            >
+                                Gameplay
+                            </button>
+                            <button
+                                className={`inline-block text-xl font-semibold p-2 relative ${selectedTab === 'story' ? 'custom-underline' : ''}`}
+                                onClick={() => setSelectedTab('story')}
+                            >
+                                Features
+                            </button>
+                        </div>
 
                         {/* Conditional rendering */}
                         {selectedTab === 'gameplay' ? (

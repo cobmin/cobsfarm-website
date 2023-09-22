@@ -49,11 +49,12 @@ export default function Hero() {
                             <ComputerDesktopIcon className="h-10 w-10 text-gray-200" aria-hidden="true" />
                             <DevicePhoneMobileIcon className="h-10 w-10 text-gray-200" aria-hidden="true" />
                         </div>
-                        <div className="text-center">
+                        <div className="text-center h-[8rem] overflow-hidden">
                             <p className="mt-10 text-2xl font-extrabold text-gray-200">
                                 {quotes[quoteIndex]}
                             </p>
                         </div>
+
                     </div>
                 </div>
 
