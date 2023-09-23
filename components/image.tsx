@@ -6,7 +6,14 @@ import LooperLands from '../public/ll-logo.png'
 import DisplayLoopers from '../public/AlphaLoopersDisplay.png'
 import TwitterLogos from '../public/twitter.svg'
 import DiscordLogos from '../public/discord.svg'
+import FlowerPics from '../public/FlowerPic.png'
+import WindMill from '../public/Windmill.png'
 
+export function WindMillBackground() {
+    return (
+        <Image src={WindMill} alt="Windmill Area" layout='fill' objectFit='cover' />
+    )
+}
 export function FarmBackground() {
     return (
         <Image src={Farm} alt="Cob's Farm" layout='fill' objectFit='cover' />
@@ -48,5 +55,10 @@ export function TwitterLogo() {
 export function DiscordLogo() {
     return (
         <Image src={DiscordLogos} className=" w-12 h-12 " alt="Discord Logo" />
+    )
+}
+export function FlowerPic() {
+    return (
+        <Image src={FlowerPics} className="h-full w-auto rounded aspect-auto" alt="Flower area" />
     )
 }
