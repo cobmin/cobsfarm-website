@@ -1,6 +1,11 @@
 import '../styles/globals.css';
 import '@rainbow-me/rainbowkit/styles.css';
-import { getDefaultWallets, RainbowKitProvider, darkTheme, AvatarComponent } from '@rainbow-me/rainbowkit';
+import { RainbowKitProvider, darkTheme, AvatarComponent, connectorsForWallets } from '@rainbow-me/rainbowkit';
+import {
+  injectedWallet,
+  metaMaskWallet,
+  walletConnectWallet,
+} from '@rainbow-me/rainbowkit/wallets';
 import type { AppProps } from 'next/app';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import {
@@ -12,6 +17,7 @@ import { alchemyProvider } from 'wagmi/providers/alchemy'
 import Layout from '../components/layout';
 import { generateColorFromAddress } from '../utils';
 import { UserIcon } from '@heroicons/react/20/solid'
+import { loopringWallet } from '../utils/loopringwallet';
 
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
@@ -22,15 +28,22 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
   [alchemyProvider({ apiKey: process.env.ALCHEMY_ID || "defaultApiKey" }),
   publicProvider(),]
 );
+const projectId = process.env.NEXT_PUBLIC_PROJECT_ID ?? 'defaultProjectId';
 
-const { connectors } = getDefaultWallets({
-  appName: process.env.NEXT_PUBLIC_PROJECT_NAME || 'Default Project Name',
-  projectId: process.env.NEXT_PUBLIC_PROJECT_ID || 'Default Project ID',
-  chains,
-});
+const connectors = connectorsForWallets([
+  {
+    groupName: 'Supported',
+    wallets: [
+      injectedWallet({ chains }),
+      // loopringWallet({ projectId, chains }),
+      metaMaskWallet({ projectId, chains }),
+      walletConnectWallet({ projectId, chains }),
+    ],
+  },
+]);
 
 const wagmiConfig = createConfig({
-  autoConnect: true,
+  autoConnect: false,
   connectors,
   publicClient,
   webSocketPublicClient,
