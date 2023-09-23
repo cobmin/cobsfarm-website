@@ -120,7 +120,7 @@ export function FeatureTwo() {
                     {/* Left Column */}
                     <div className="text-center md:text-left space-y-4">
                         <h2 className="text-4xl font-semibold">Alpha Farms is Now Live</h2>
-                        <p>Alpha Fields is the first stage of our unfolding adventure. This foundational stage serves as a proving ground where we fine-tune gameplay dynamics, implement player feedback, and roll out new features. If you're looking forward to farming, fishing, owning shops, and having your own house, know that these enriching experiences are on our roadmap.</p>
+                        <p>Alpha Fields is the first stage of our unfolding adventure. This foundational stage serves as a proving ground where we fine-tune gameplay dynamics, implement player feedback, and roll out new features. If you&apos;re looking forward to farming, fishing, owning shops, and having your own house, know that these enriching experiences are on our roadmap.</p>
                         <div className="mt-10 flex items-center justify-center md:justify-start gap-x-6">
                             <a
                                 href="https://www.cobmin.com/posts/Discover-Cobs-Farm"
@@ -204,8 +204,8 @@ export function FeatureThree() {
         <div className="py-24 text-center text-gray-300">
             <div className="mx-auto max-w-7xl px-6">
                 <p className="text-lg">Play How You Want</p>
-                <h2 className="text-4xl font-semibold my-4">Make Cob's Farm your Own</h2>
-                <p className="text-lg mb-12">Shape your own adventure on Cob's Farm. From clashing swords with lurking foes, unwinding in picturesque retreats, to the upcoming feature of item gathering, every choice enhances your personal journey.</p>
+                <h2 className="text-4xl font-semibold my-4">Make Cob&apos;s Farm your Own</h2>
+                <p className="text-lg mb-12">Shape your own adventure on Cob&apos;s Farm. From clashing swords with lurking foes, unwinding in picturesque retreats, to the upcoming feature of item gathering, every choice enhances your personal journey.</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {features.map((feature, index) => (
                         <div key={index} className="bg-gray-800 rounded-lg p-4 flex flex-col">
@@ -239,7 +239,7 @@ export function FeatureFour() {
         <div className="py-24 text-center text-gray-300">
             <div className="mx-auto max-w-7xl px-6">
                 <h2 className="text-4xl font-semibold max-w-lg mx-auto">Open World</h2>
-                <p className="text-lg mb-12 max-w-lg mx-auto">Explore the expansive realm of Cob's Farm as you carve your own path. Team up with other adventurers, tackle menacing foes, unearth hidden secrets, and find tranquility in secluded spots.</p>
+                <p className="text-lg mb-12 max-w-lg mx-auto">Explore the expansive realm of Cob&apos;s Farm as you carve your own path. Team up with other adventurers, tackle menacing foes, unearth hidden secrets, and find tranquility in secluded spots.</p>
                 <div className="flex justify-center space-x-4 mb-12">
                     {features.map((feature, index) => (
                         <div key={index} className="flex flex-col items-center">
@@ -255,8 +255,19 @@ export function FeatureFour() {
                     ))}
                 </div>
                 <div className="flex flex-col items-center mb-4">
-                    <img src={features[activeFeature].image} alt={features[activeFeature].title} className="mx-auto mb-4 object-cover rounded" style={{ maxWidth: '800px' }} />
-                    <div className="text-center" style={{ maxWidth: '600px' }}>
+                    <div className="flex flex-col items-center mb-4">
+                        <Image
+                            src={features[activeFeature].image}
+                            alt={features[activeFeature].title}
+                            width={800}  // set the width
+                            height={500}  // set the height
+                            className="mx-auto mb-4 object-cover rounded"
+                        />
+                        <div className="text-center" style={{ maxWidth: '600px' }}>
+                            <h3 className="text-lg font-semibold">{features[activeFeature].title}</h3>
+                            <p>{features[activeFeature].description}</p>
+                        </div>
+                    </div>                    <div className="text-center" style={{ maxWidth: '600px' }}>
                         <h3 className="text-lg font-semibold">{features[activeFeature].title}</h3>
                         <p>{features[activeFeature].description}</p>
                     </div>
