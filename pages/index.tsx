@@ -19,19 +19,19 @@ const Home: NextPage = () => {
       <Hero />
 
       <main className="">
-        <div className="container mx-auto">
+        <div id="overview" className="container mx-auto">
           <Features />
         </div>
-        <div className="container mx-auto">
+        <div id="alphafields" className="container mx-auto">
           <FeatureTwo />
         </div>
-        <div className="container mx-auto">
+        <div id="news" className="container mx-auto">
           <NewsSection />
         </div>
-        <div className="container mx-auto">
+        <div id="flexiblegameplay" className="container mx-auto">
           <FeatureThree />
         </div>
-        <div className="container mx-auto">
+        <div id="world" className="container mx-auto">
           <FeatureFour />
         </div>
       </main>

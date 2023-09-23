@@ -5,7 +5,7 @@ import { DevicePhoneMobileIcon, ComputerDesktopIcon } from '@heroicons/react/20/
 const quotes = [
     "A weekend getaway in a game!",
     "Engaged yet relaxed—pure fun.",
-    "Cob's Farm: not a game, an experience.",
+    "Cob's Farm is an experience.",
     "Surprises around every corner!"
 ];
 

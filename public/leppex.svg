@@ -1,0 +1,36 @@
+<svg id="Folder_2_copy" data-name="Folder 2 copy"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 87px;
+        fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        stroke: #283485;
+      }
+
+      .cls-2 {
+        stroke: #E91E63;
+      }
+
+      .cls-3 {
+        stroke: #fff;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M383,498.8c-236.7-22.412-394.9,88.1-247.555,248,149.208,161.92,335.48,37.758,374.386-275.262,42.359-340.795,241.8-412.26,386.025-255.747C1036.88,368.826,873.661,549.48,613,524.8"/>
+  <path id="Shape_3_copy_4" data-name="Shape 3 copy 4" class="cls-1" d="M777.478,390.113L616.815,498.66,771.662,601.9"/>
+  <path id="Shape_3_copy_5" data-name="Shape 3 copy 5" class="cls-1" d="M237.99,382.513L398.654,491.059,243.807,594.3"/>
+  <path class="cls-2" d="M389,502.8c-236.7-22.412-400.9,160.1-253.555,320.006,149.208,161.92,335.48,37.758,374.386-275.261,42.359-340.8,241.8-412.261,386.025-255.748C1036.88,444.834,881.661,551.48,621,526.8"/>
+  <path id="Shape_3_copy_4-2" data-name="Shape 3 copy 4" class="cls-2" d="M777.478,426.121L616.815,534.668,771.662,637.905"/>
+  <path id="Shape_3_copy_5-2" data-name="Shape 3 copy 5" class="cls-2" d="M237.99,418.521L398.654,527.067,243.807,630.3"/>
+  <path class="cls-3" d="M407.771,508.616c-217.442-23.588-376.8,122.039-241.44,290.339C303.4,969.379,474.513,838.7,510.253,509.237c38.912-358.694,222.124-433.913,354.614-269.18C994.415,401.132,851.148,545.41,611.7,519.434"/>
+  <path id="Shape_3_copy_4-3" data-name="Shape 3 copy 4" class="cls-3" d="M756.122,402.487L608.532,516.735,750.779,625.393"/>
+  <path id="Shape_3_copy_5-3" data-name="Shape 3 copy 5" class="cls-3" d="M260.532,394.487l147.59,114.248L265.875,617.393"/>
+</svg>

@@ -46,7 +46,7 @@ export default function Features() {
     const [selectedTab, setSelectedTab] = useState('gameplay'); // State for tab selection
 
     return (
-        <div id="overview" className="overflow-hidden py-12 sm:py-32 text-gray-300">
+        <div className="overflow-hidden py-24 sm:py-32 text-gray-300">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                     {/* Image moved to first column and adjusted styles */}
@@ -113,7 +113,7 @@ export default function Features() {
 }
 export function FeatureTwo() {
     return (
-        <div className="py-12 bg-[#718f3f] text-gray-300">
+        <div className="py-24 bg-[#718f3f] text-gray-300">
             <div className="mx-auto max-w-7xl px-6 lg:px-6">
                 <div className="flex flex-col md:flex-row gap-x-8 gap-y-8">
                     {/* Right Column, moved to top in mobile view */}
@@ -123,7 +123,7 @@ export function FeatureTwo() {
 
                     {/* Left Column */}
                     <div className="text-center md:text-left space-y-4 order-2 md:order-1">
-                        <h2 className="text-4xl font-semibold">Alpha Farms is Now Live</h2>
+                        <h2 className="text-4xl font-semibold">Alpha Fields is Now Live</h2>
                         <p>Alpha Fields is the first stage of our unfolding adventure. This foundational stage serves as a proving ground where we fine-tune gameplay dynamics, implement player feedback, and roll out new features. If you&apos;re looking forward to farming, fishing, owning shops, and having your own house, know that these enriching experiences are on our roadmap.</p>
                         <div className="mt-10 flex items-center justify-center md:justify-start gap-x-6">
                             <a
@@ -147,9 +147,9 @@ export function NewsSection() {
         { source: "https://x.com/CobsFarm/status/1696572071646556378?s=20", image: "/Farm.png", title: "Cob's Farm: Alpha Fields Starts", date: "August 29, 2023" },
     ];
     return (
-        <div className="py-12 text-gray-300">
+        <div className="py-24 text-gray-300">
             <div className="mx-auto max-w-7xl px-6 lg:px-6 text-center mb-8">
-                <h2 className="text-2xl font-semibold">News</h2>
+                <h2 className="text-4xl font-semibold">NEWS</h2>
             </div>
             <div className="mx-auto max-w-7xl px-6 lg:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {newsPosts.map((post, index) => (
@@ -202,7 +202,7 @@ export function FeatureThree() {
     ];
 
     return (
-        <div className="py-12 bg-[#718f3f] text-gray-300 text-center text-gray-300">
+        <div className="py-24 bg-[#718f3f] text-gray-300 text-center text-gray-300">
             <div className="mx-auto max-w-7xl px-6">
                 <p className="text-lg">Play How You Want</p>
                 <h2 className="text-4xl font-semibold my-4">Make Cob&apos;s Farm your Own</h2>
@@ -224,44 +224,69 @@ export function FeatureThree() {
         </div>
     );
 }
+type Feature = {
+    image: string;
+    emoji: string;
+    title: string;
+    description: string;
+};
 
+type FeatureButtonProps = {
+    feature: Feature;
+    index: number;
+    activeFeature: number;
+    setActiveFeature: (index: number) => void;
+};
+const FeatureButton: React.FC<FeatureButtonProps> = ({ feature, index, activeFeature, setActiveFeature }) => (
+    <div className="flex flex-col items-center">
+        <button
+            className={`w-12 h-12 sm:w-16 sm:h-16 mx-0 sm:mx-6 mb-4 rounded-full border-2 flex justify-center items-center text-2x1 sm:text-3xl ${activeFeature === index ? 'border-[#718f3f]' : ''}`}
+            onClick={() => setActiveFeature(index)}
+        >
+            {feature.emoji}
+        </button>
+        <span className={`text-sm hidden md:inline-block ${activeFeature === index ? 'text-[#718f3f]' : ''}`}>{feature.title}</span>
+    </div>
+);
+const SmallFeatureButton: React.FC<FeatureButtonProps> = ({ feature, index, activeFeature, setActiveFeature }) => (
+    <div className="flex flex-col items-center">
+        <button
+            className={`w-6 h-1 sm:w-12 sm:h-2 mx-0 sm:mx-3 mb-2 rounded-full border-2 flex justify-center items-center ${activeFeature === index ? 'border-[#718f3f]' : ''}`}
+            onClick={() => setActiveFeature(index)}
+        >
+            {/* Intentionally left blank for minimal design */}
+        </button>
+    </div>
+);
 export function FeatureFour() {
     const [activeFeature, setActiveFeature] = useState(0);
 
     const features = [
         { image: '/WorldBoss.png', emoji: "👹", title: 'World Bosses', description: 'Engage in epic battles with formidable World Bosses. Gather your friends and test your skills against these colossal foes.' },
         { image: '/ComingSoon.png', emoji: "🚪", title: 'Dungeons', description: 'Delve deep into mysterious dungeons filled with unique loot, puzzles, and enemies waiting in the dark.' },
-        { image: '/ComingSoon.png', emoji: "⚔️", title: 'PVP', description: 'Challenge other players in thrilling PVP combat. Prove your mettle and climb the leaderboards.' },
+        { image: '/ComingSoon.png', emoji: "⚔️", title: 'PvP', description: 'Challenge other players in thrilling PvP combat. Prove your mettle and climb the leaderboards.' },
         { image: '/ComingSoon.png', emoji: "🏡", title: 'Ownership', description: 'Claim and customize your own piece of Cob\'s Farm. Show off your style and achievements.' },
         { image: '/ComingSoon.png', emoji: "👥", title: 'Community Events', description: 'Participate in special events to win exclusive rewards and strengthen your community ties.' }
     ];
 
     return (
-        <div className="py-12 text-center text-gray-300">
+        <div className="py-24 text-center text-gray-300">
             <div className="mx-auto max-w-7xl px-6">
-                <h2 className="text-4xl font-semibold max-w-lg mx-auto">Open World</h2>
+                <h2 className="text-4xl mb-4 font-semibold max-w-lg mx-auto">Open World</h2>
                 <p className="text-lg mb-12 max-w-lg mx-auto">Explore the expansive realm of Cob&apos;s Farm as you carve your own path. Team up with other adventurers, tackle menacing foes, unearth hidden secrets, and find tranquility in secluded spots.</p>
-                <div className="flex justify-center space-x-4 mb-12">
+                <div className="flex justify-center space-x-4 mb-6">
                     {features.map((feature, index) => (
-                        <div key={index} className="flex flex-col items-center">
-
-                            <button
-                                className={`w-12 h-12 sm:w-16 sm:h-16 mx-0 sm:mx-6 mb-4 rounded-full border-2 flex justify-center items-center text-2x1 sm:text-3xl ${activeFeature === index ? 'border-[#718f3f]' : ''}`}
-                                onClick={() => setActiveFeature(index)}
-                            >
-                                {feature.emoji}
-                            </button>
-                            <span className={`text-sm hidden md:inline-block ${activeFeature === index ? 'text-[#718f3f]' : ''}`}>{feature.title}</span>
-                        </div>
+                        <FeatureButton feature={feature} index={index} activeFeature={activeFeature} setActiveFeature={setActiveFeature} />
                     ))}
                 </div>
+
                 <div className="flex flex-col items-center mb-4">
                     <div className="flex flex-col items-center mb-4">
                         <Image
                             src={features[activeFeature].image}
                             alt={features[activeFeature].title}
-                            width={800}  // set the width
-                            height={500}  // set the height
+                            width={800}
+                            height={500}
                             className="mx-auto mb-4 object-cover rounded"
                         />
                         <div className="text-center" style={{ maxWidth: '600px' }}>
@@ -270,10 +295,19 @@ export function FeatureFour() {
                         </div>
                     </div>
                 </div>
+
+                <div className="flex justify-center space-x-4 mb-6">
+                    {features.map((feature, index) => (
+                        <SmallFeatureButton feature={feature} index={index} activeFeature={activeFeature} setActiveFeature={setActiveFeature} />
+                    ))}
+                </div>
             </div>
         </div>
     );
-
-
-
 }
+
+
+
+
+
+

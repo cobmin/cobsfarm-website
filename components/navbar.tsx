@@ -6,9 +6,10 @@ import { CobsFarmLogoNav } from './image'
 
 const navigation = [
     { name: 'Overview', href: '#overview', current: false },
-    { name: 'Alpha Farms', href: 'https://www.cobmin.com/posts/Discover-Cobs-Farm', current: false },
-    // { name: 'Creators', href: '#', current: false },
-    // { name: 'News', href: '#', current: false },
+    { name: 'Alpha Fields', href: '#alphafields', current: false },
+    { name: 'News', href: '#news', current: false },
+    { name: 'Flexible Gameplay', href: '#flexiblegameplay', current: false },
+    { name: 'World', href: '#world', current: false },
 ]
 
 function classNames(...classes: (string | undefined)[]) {
@@ -18,7 +19,7 @@ function classNames(...classes: (string | undefined)[]) {
 
 export default function Navbar() {
     return (
-        <Disclosure as="nav" className="bg-gray-800 z-20 fixed top-0 left-0 right-0 rounded-lg md:top-5 md:left-5 md:right-5">
+        <Disclosure as="nav" className="bg-gray-800 z-20 fixed top-0 left-0 right-0 sm:rounded-lg md:top-5 md:left-5 md:right-5">
 
             {({ open }) => (
                 <>

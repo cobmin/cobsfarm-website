@@ -1,5 +1,5 @@
 import Image from 'next/image';  // Import if you haven't already
-import { DiscordLogo, LooperLandsLogo, TwitterLogo } from "./image";
+import { DiscordLogo, LooperLandsLogo, TwitterLogo, LoopExchangeLogo } from "./image";
 
 export default function Footer() {
     return (
@@ -17,13 +17,24 @@ export default function Footer() {
                         </a>
                     </div>
                 </div>
-
-                <div className="flex justify-center md:justify-end">
-                    <a href="https://loopworms.io/DEV/LooperLands/LooperLandsGuide/">
-                        <LooperLandsLogo />
-                    </a>
+                <div className=" md:mb-0 md:text-left sm:text-center">
+                    <h2 className="text-lg font-semibold">Marketplace</h2>
+                    <div className="flex justify-center items-center">
+                        <a href="https://loopexchange.art/collection/cobsfarm" target="_blank" rel="noreferrer">
+                            <LoopExchangeLogo />
+                        </a>
+                    </div>
                 </div>
-
+                <div className=" md:mb-0 md:text-left sm:text-center">
+                    <h2 className="text-lg font-semibold">Hosted On</h2>
+                    <div className="flex justify-center items-center">                        {/* <a href="https://twitter.com/CobsFarm" target="_blank" rel="noreferrer">
+                            <Loopring />
+                        </a> */}
+                        <a href="https://loopworms.io/DEV/LooperLands/LooperLandsGuide/">
+                            <LooperLandsLogo />
+                        </a>
+                    </div>
+                </div>
             </div>
         </footer>
     );
