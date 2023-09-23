@@ -150,6 +150,9 @@ export function NewsSection() {
     ];
     return (
         <div className="py-24 text-gray-300">
+            <div className="mx-auto max-w-7xl px-6 lg:px-6 text-center mb-8">
+                <h2 className="text-2xl font-semibold">News</h2>
+            </div>
             <div className="mx-auto max-w-7xl px-6 lg:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {newsPosts.map((post, index) => (
                     <Link key={index} href={`${post.source}`}>
@@ -167,11 +170,11 @@ export function NewsSection() {
                     </Link>
                 ))}
             </div>
-            <div className="mt-10 flex justify-center">
+            {/* <div className="mt-10 flex justify-center">
                 <a href="#" className="rounded-md px-6 py-2 text-lg font-semibold text-white shadow-lg bg-[#718f3f] hover:bg-[#85a24a]">
                     View All
                 </a>
-            </div>
+            </div> */}
         </div>
     );
 }
@@ -201,7 +204,7 @@ export function FeatureThree() {
     ];
 
     return (
-        <div className="py-24 text-center text-gray-300">
+        <div className="py-24 bg-[#718f3f] text-gray-300 text-center text-gray-300">
             <div className="mx-auto max-w-7xl px-6">
                 <p className="text-lg">Play How You Want</p>
                 <h2 className="text-4xl font-semibold my-4">Make Cob&apos;s Farm your Own</h2>
@@ -245,7 +248,7 @@ export function FeatureFour() {
                         <div key={index} className="flex flex-col items-center">
 
                             <button
-                                className={`w-16 h-16 mx-1 sm:mx-6 mb-4 rounded-full border-2 flex justify-center items-center text-3xl ${activeFeature === index ? 'border-[#718f3f]' : ''}`}
+                                className={`w-14 h-14 sm:w-16 sm:h-16 mx-1 sm:mx-6 mb-4 rounded-full border-2 flex justify-center items-center text-2x1 sm:text-3xl ${activeFeature === index ? 'border-[#718f3f]' : ''}`}
                                 onClick={() => setActiveFeature(index)}
                             >
                                 {feature.emoji}
@@ -267,9 +270,6 @@ export function FeatureFour() {
                             <h3 className="text-lg font-semibold">{features[activeFeature].title}</h3>
                             <p>{features[activeFeature].description}</p>
                         </div>
-                    </div>                    <div className="text-center" style={{ maxWidth: '600px' }}>
-                        <h3 className="text-lg font-semibold">{features[activeFeature].title}</h3>
-                        <p>{features[activeFeature].description}</p>
                     </div>
                 </div>
             </div>

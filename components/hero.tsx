@@ -91,12 +91,12 @@ export function HeroTwo() {
                         </div>
 
                         <p className="mt-6 text-xl font-semibold leading-8 text-gray-300">
-                            Relaxing Action RPG
+                            Get Started Today
                         </p>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <a
                                 href="https://www.cobmin.com/posts/Discover-Cobs-Farm"
-                                className="rounded-md px-8 py-4 text-lg font-semibold text-white shadow-lg bg-[#718f3f] hover:bg-[#85a24a]"
+                                className="rounded-md px-6 py-2 text-lg font-semibold text-white shadow-lg bg-[#1f2937] hover:bg-[#2d3b4f]"
                             >
                                 Play Now
                             </a>
