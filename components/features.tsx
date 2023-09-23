@@ -276,7 +276,13 @@ export function FeatureFour() {
                 <p className="text-lg mb-12 max-w-lg mx-auto">Explore the expansive realm of Cob&apos;s Farm as you carve your own path. Team up with other adventurers, tackle menacing foes, unearth hidden secrets, and find tranquility in secluded spots.</p>
                 <div className="flex justify-center space-x-4 mb-6">
                     {features.map((feature, index) => (
-                        <FeatureButton feature={feature} index={index} activeFeature={activeFeature} setActiveFeature={setActiveFeature} />
+                        <FeatureButton
+                            key={index}
+                            feature={feature}
+                            index={index}
+                            activeFeature={activeFeature}
+                            setActiveFeature={setActiveFeature}
+                        />
                     ))}
                 </div>
 
@@ -298,16 +304,16 @@ export function FeatureFour() {
 
                 <div className="flex justify-center space-x-4 mb-6">
                     {features.map((feature, index) => (
-                        <SmallFeatureButton feature={feature} index={index} activeFeature={activeFeature} setActiveFeature={setActiveFeature} />
+                        <SmallFeatureButton
+                            key={index}
+                            feature={feature}
+                            index={index}
+                            activeFeature={activeFeature}
+                            setActiveFeature={setActiveFeature}
+                        />
                     ))}
                 </div>
             </div>
         </div>
     );
 }
-
-
-
-
-
-
