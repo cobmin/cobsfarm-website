@@ -141,10 +141,10 @@ export function FeatureTwo() {
 }
 export function NewsSection() {
     const newsPosts = [
+        { source: "https://www.cobmin.com/posts/Introducing-Alpha-Fields", image: "/Farm.png", title: "Introducing Alpha Fields: A Deeper Dive into Cob's Farm", date: "September 25, 2023" },
         { source: "https://x.com/CobsFarm/status/1703554856034717885?s=20", image: "/LoopExchangeSellOut.png", title: "Great Start to a Fun Journey: Alpha Drop Sells Out", date: "September 17, 2023" },
         { source: "https://www.cobmin.com/posts/Discover-Cobs-Farm", image: "/Entrance.jpeg", title: "Discover Cob's Farm: The Alpha Origin Airdrop and Your Next Adventure Awaits", date: "September 9, 2023" },
         { source: "https://loopexchange.art/collection/cobsfarm", image: "/LoopExchangeCollection.png", title: "Cob's Farm on LoopExchange!", date: "September 1, 2023" },
-        { source: "https://x.com/CobsFarm/status/1696572071646556378?s=20", image: "/Farm.png", title: "Cob's Farm: Alpha Fields Starts", date: "August 29, 2023" },
     ];
     return (
         <div className="py-24 text-gray-300">
