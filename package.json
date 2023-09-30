@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.0.8",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@rainbow-me/rainbowkit": "^1.0.11",
+    "html2canvas": "^1.4.1",
     "next": "^13.4.19",
     "react": "^18.2.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
     "viem": "~1.10.7",
     "wagmi": "~1.4.1"

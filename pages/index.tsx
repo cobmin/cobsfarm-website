@@ -1,9 +1,8 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-
 import Hero, { HeroTwo } from '../components/hero'
 import Features, { FeatureFour, FeatureThree, FeatureTwo, NewsSection } from '../components/features';
-import Footer from '../components/footer';
+
 const Home: NextPage = () => {
   return (
     <div>
@@ -36,7 +35,6 @@ const Home: NextPage = () => {
         </div>
       </main>
       <HeroTwo />
-      <Footer />
     </div>
   );
 };
