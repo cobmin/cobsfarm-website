@@ -141,10 +141,10 @@ export function FeatureTwo() {
 }
 export function NewsSection() {
     const newsPosts = [
+        { source: "https://www.cobmin.com/posts/The-Golden-Fin-Challenge", image: "https://www.cobmin.com/assets/blog/The-Golden-Fin-Challenge/Fishing_CobsFarmEntrance.png", title: "Catch a Goldfish, Win an Exclusive Weapon! Join the Fishing Frenzy at Cob's Farm", date: "November 17, 2023" },
         { source: "https://www.cobmin.com/posts/Introducing-Alpha-Fields", image: "/Farm.png", title: "Introducing Alpha Fields: A Deeper Dive into Cob's Farm", date: "September 25, 2023" },
         { source: "https://x.com/CobsFarm/status/1703554856034717885?s=20", image: "/LoopExchangeSellOut.png", title: "Great Start to a Fun Journey: Alpha Drop Sells Out", date: "September 17, 2023" },
         { source: "https://www.cobmin.com/posts/Discover-Cobs-Farm", image: "/Entrance.jpeg", title: "Discover Cob's Farm: The Alpha Origin Airdrop and Your Next Adventure Awaits", date: "September 9, 2023" },
-        { source: "https://loopexchange.art/collection/cobsfarm", image: "/LoopExchangeCollection.png", title: "Cob's Farm on LoopExchange!", date: "September 1, 2023" },
     ];
     return (
         <div className="py-24 text-gray-300">
@@ -156,7 +156,11 @@ export function NewsSection() {
                     <Link key={index} href={`${post.source}`}>
                         <div role="link" tabIndex={0} className="bg-gray-800 rounded-lg p-4 flex flex-col h-full">
                             <div className="relative h-40">
-                                <Image src={post.image} className='rounded object-cover absolute inset-0' layout="fill" alt="Entrance" />
+                                {post.image.startsWith('http') ?
+                                    <img src={post.image} className="rounded object-cover image-fill" alt="Entrance" />
+                                    :
+                                    <Image src={post.image} className="rounded object-cover" layout="fill" alt="Entrance" />
+                                }
                             </div>
                             <div className="pt-4 flex flex-col justify-between flex-grow">
                                 <div className="flex-grow">
@@ -168,6 +172,7 @@ export function NewsSection() {
                     </Link>
                 ))}
             </div>
+
             {/* <div className="mt-10 flex justify-center">
                 <a href="#" className="rounded-md px-6 py-2 text-lg font-semibold text-white shadow-lg bg-[#718f3f] hover:bg-[#85a24a]">
                     View All
