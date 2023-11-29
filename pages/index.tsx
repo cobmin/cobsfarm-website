@@ -16,13 +16,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/TwitterPfp.png" />
         <meta property="og:title" content="Cob&apos;s Farm - Adventure Game with Farming and Combat" />
         <meta property="og:description" content="Explore Cob&apos;s Farm, a unique adventure game that combines farming and combat. Join the Alpha Fields and start your adventure today." />
-        <meta property="og:image" content="https://www.cobsfarm.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FEntrance.6f320002.jpeg&w=2048&q=75" />
+        <meta property="og:image" content="https://www.cobmin.com/assets/blog/Discover-Cobs-Farm/Entrance.jpeg" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://www.cobsfarm.com/" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Cob&apos;s Farm - Adventure Game with Farming and Combat" />
         <meta name="twitter:description" content="Explore Cob&apos;s Farm, a unique adventure game that combines farming and combat. Join the Alpha Fields and start your adventure today." />
-        <meta name="twitter:image" content="https://www.cobsfarm.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FEntrance.6f320002.jpeg&w=2048&q=75" />
+        <meta name="twitter:image" content="https://www.cobmin.com/assets/blog/Discover-Cobs-Farm/Entrance.jpeg" />
         <meta name="twitter:site" content="@cobmin" />
       </Head>
       <Hero />
