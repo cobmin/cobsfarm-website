@@ -3,7 +3,7 @@ import { GlobeAltIcon, AdjustmentsHorizontalIcon, UsersIcon, StarIcon, PuzzlePie
 import { CobsEntrance, DisplayAlphaLoopers, FlowerPic } from './image';
 import Image from 'next/image'
 import Link from 'next/link';
-
+import { NewsSectionProps } from '../types/types';
 
 const Gameplay = [
     {
@@ -19,15 +19,15 @@ const Gameplay = [
     },
     {
         name: 'Community Interaction: ',
-        description: 'Engage with animated farm animals and interact with other players.',
+        description: 'Join a vibrant community: Experience dynamic interactions and build connections with other players in a constantly evolving world.',
         icon: UsersIcon,
     },
 ]
 const Story = [
     {
-        name: 'Alpha Origin Airdrop: ',
+        name: 'Ongoing Rewards & Opportunities: ',
         description:
-            'Step into the next phase with Mystic Maize Vault and randomized CobLooper characters.',
+            'Stay engaged for regular airdrops and unique opportunities to claim exclusive ownerships in Cob\'s Farm, each bringing its own unique benefits and surprises.',
         icon: StarIcon,
     },
     {
@@ -36,8 +36,9 @@ const Story = [
         icon: PuzzlePieceIcon,
     },
     {
-        name: 'Exclusive Ownership: ',
-        description: 'Limited Mystic Maize Vaults make you eligible for unique CobLooper characters and weapons.',
+        name: 'Dynamic Expansions: ',
+        description: 'Experience the evolving world of Cob\'s Farm with regular updates introducing new characters, environments, and challenges. Keep your adventure fresh and exciting as you uncover new aspects of the game.',
+
         icon: CheckBadgeIcon,
     },
 ]
@@ -53,8 +54,6 @@ export default function Features() {
                     <div className="flex justify-center items-center">
                         {selectedTab === 'gameplay' ? <CobsEntrance /> : <DisplayAlphaLoopers />}
                     </div>
-
-
                     {/* Text moved to second column */}
                     <div className="lg:pl-8 lg:pt-4">
                         {/* Tab selection */}
@@ -103,17 +102,16 @@ export default function Features() {
                                 </dl>
                             </>
                         )}
-
-
                     </div>
                 </div>
             </div>
         </div>
     );
 }
+
 export function FeatureTwo() {
     return (
-        <div className="py-24 bg-[#718f3f] text-gray-300">
+        <div className="py-24 bg-gradient-texture text-gray-300">
             <div className="mx-auto max-w-7xl px-6 lg:px-6">
                 <div className="flex flex-col md:flex-row gap-x-8 gap-y-8">
                     {/* Right Column, moved to top in mobile view */}
@@ -139,34 +137,35 @@ export function FeatureTwo() {
         </div>
     );
 }
-export function NewsSection() {
-    const newsPosts = [
-        { source: "https://www.cobmin.com/posts/The-Golden-Fin-Challenge", image: "https://www.cobmin.com/assets/blog/The-Golden-Fin-Challenge/Fishing_CobsFarmEntrance.png", title: "Catch a Goldfish, Win an Exclusive Weapon! Join the Fishing Frenzy at Cob's Farm", date: "November 17, 2023" },
-        { source: "https://www.cobmin.com/posts/Introducing-Alpha-Fields", image: "/Farm.png", title: "Introducing Alpha Fields: A Deeper Dive into Cob's Farm", date: "September 25, 2023" },
-        { source: "https://x.com/CobsFarm/status/1703554856034717885?s=20", image: "/LoopExchangeSellOut.png", title: "Great Start to a Fun Journey: Alpha Drop Sells Out", date: "September 17, 2023" },
-        { source: "https://www.cobmin.com/posts/Discover-Cobs-Farm", image: "/Entrance.jpeg", title: "Discover Cob's Farm: The Alpha Origin Airdrop and Your Next Adventure Awaits", date: "September 9, 2023" },
-    ];
+export function NewsSection({ cobFarmPosts }: NewsSectionProps) {
+    const baseUrl = "https://www.cobmin.com/";
+
+    const formatDate = (dateString: string): string => {
+        const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(dateString).toLocaleDateString(undefined, options);
+    };
+
     return (
         <div className="py-24 text-gray-300">
             <div className="mx-auto max-w-7xl px-6 lg:px-6 text-center mb-8">
                 <h2 className="text-4xl font-semibold">NEWS</h2>
             </div>
             <div className="mx-auto max-w-7xl px-6 lg:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {newsPosts.map((post, index) => (
-                    <Link key={index} href={`${post.source}`}>
+                {cobFarmPosts.map((post, index) => (
+                    <Link key={index} href={post.slug ? (post.slug.startsWith('http') ? post.slug : baseUrl + post.slug) : '#'}>
                         <div role="link" tabIndex={0} className="bg-gray-800 rounded-lg p-4 flex flex-col h-full">
                             <div className="relative h-40">
-                                {post.image.startsWith('http') ?
-                                    <img src={post.image} className="rounded object-cover image-fill" alt="Entrance" />
+                                {post.coverImage && (post.coverImage.startsWith('http') ?
+                                    <img src={post.coverImage} className="rounded object-cover image-fill" alt="Entrance" />
                                     :
-                                    <Image src={post.image} className="rounded object-cover" layout="fill" alt="Entrance" />
-                                }
+                                    <Image src={`${baseUrl + post.coverImage}`} className="rounded object-cover" layout="fill" alt="Entrance" />
+                                )}
                             </div>
                             <div className="pt-4 flex flex-col justify-between flex-grow">
                                 <div className="flex-grow">
                                     <h3 className="text-lg font-semibold pb-2 line-clamp-3">{post.title}</h3>
                                 </div>
-                                <p className="text-sm">{post.date}</p>
+                                <p className="text-sm">{formatDate(post.date)}</p>
                             </div>
                         </div>
                     </Link>
@@ -207,7 +206,7 @@ export function FeatureThree() {
     ];
 
     return (
-        <div className="py-24 bg-[#718f3f] text-gray-300 text-center text-gray-300">
+        <div className="py-24 bg-gradient-texture text-gray-300 text-center text-gray-300">
             <div className="mx-auto max-w-7xl px-6">
                 <p className="text-lg">Play How You Want</p>
                 <h2 className="text-4xl font-semibold my-4">Make Cob&apos;s Farm your Own</h2>
@@ -268,10 +267,10 @@ export function FeatureFour() {
 
     const features = [
         { image: '/WorldBoss.png', emoji: "👹", title: 'World Bosses', description: 'Engage in epic battles with formidable World Bosses. Gather your friends and test your skills against these colossal foes.' },
-        { image: '/ComingSoon.png', emoji: "🚪", title: 'Dungeons', description: 'Delve deep into mysterious dungeons filled with unique loot, puzzles, and enemies waiting in the dark.' },
+        { image: '/dungeon.png', emoji: "🚪", title: 'Dungeons', description: 'Delve deep into mysterious dungeons filled with unique loot, puzzles, and enemies waiting in the dark.' },
         { image: '/ComingSoon.png', emoji: "⚔️", title: 'PvP', description: 'Challenge other players in thrilling PvP combat. Prove your mettle and climb the leaderboards.' },
         { image: '/ComingSoon.png', emoji: "🏡", title: 'Ownership', description: 'Claim and customize your own piece of Cob\'s Farm. Show off your style and achievements.' },
-        { image: '/ComingSoon.png', emoji: "👥", title: 'Community Events', description: 'Participate in special events to win exclusive rewards and strengthen your community ties.' }
+        { image: '/GoldFishRunning.gif', emoji: "👥", title: 'Community Events', description: 'Participate in special events to win exclusive rewards and strengthen your community ties.' }
     ];
 
     return (
@@ -293,13 +292,14 @@ export function FeatureFour() {
 
                 <div className="flex flex-col items-center mb-4">
                     <div className="flex flex-col items-center mb-4">
-                        <Image
-                            src={features[activeFeature].image}
-                            alt={features[activeFeature].title}
-                            width={800}
-                            height={500}
-                            className="mx-auto mb-4 object-cover rounded"
-                        />
+                        <div className="w-[800px] h-[500px] relative mb-4 overflow-hidden rounded">
+                            <Image
+                                src={features[activeFeature].image}
+                                alt={features[activeFeature].title}
+                                layout="fill"
+                                objectFit="cover" // This ensures the image will cover the entire area of the container, cropping if necessary
+                            />
+                        </div>
                         <div className="text-center" style={{ maxWidth: '600px' }}>
                             <h3 className="text-lg font-semibold">{features[activeFeature].title}</h3>
                             <p>{features[activeFeature].description}</p>

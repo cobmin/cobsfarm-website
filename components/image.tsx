@@ -40,7 +40,7 @@ export function CobsFarmLogoNav() {
 }
 export function CobsEntrance() {
     return (
-        <Image src={Entrance} className="h-full w-auto rounded aspect-auto" alt="Cob's Farm Entrance" />
+        <Image src={Entrance} className="w-full h-auto max-h-96 object-contain rounded" alt="Cob's Farm Entrance" />
     )
 }
 export function LooperLandsLogo() {
@@ -50,7 +50,7 @@ export function LooperLandsLogo() {
 }
 export function DisplayAlphaLoopers() {
     return (
-        <Image src={DisplayLoopers} className="h-full w-auto rounded aspect-auto" alt="Alpha Loopers" />
+        <Image src={DisplayLoopers} className="w-full h-auto max-h-96 object-contain rounded" alt="Alpha Loopers" />
     )
 }
 

@@ -2,8 +2,27 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import Hero, { HeroTwo } from '../components/hero'
 import Features, { FeatureFour, FeatureThree, FeatureTwo, NewsSection } from '../components/features';
+import { GetStaticProps, GetStaticPropsContext } from 'next';
+import { NewsSectionProps, BlogPost } from '../types/types';
 
-const Home: NextPage = () => {
+
+async function fetchBlogPosts(): Promise<BlogPost[]> {
+  // Make sure to handle errors and data fetching logic correctly.
+  const response = await fetch('http://cobmin.com/api/posts');
+  const posts = await response.json();
+  return posts;
+}
+``
+export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
+  const allPosts = await fetchBlogPosts();
+  const cobFarmPosts = allPosts.filter((post: BlogPost) => post.categories.includes("cob's farm"));
+
+  return {
+    props: { cobFarmPosts },
+  };
+};
+
+const Home: NextPage<NewsSectionProps> = ({ cobFarmPosts }) => {
   return (
     <div>
       <Head>
@@ -27,7 +46,7 @@ const Home: NextPage = () => {
       </Head>
       <Hero />
 
-      <main className="">
+      <main className="bg-gradient">
         <div id="overview" className="container mx-auto">
           <Features />
         </div>
@@ -35,7 +54,7 @@ const Home: NextPage = () => {
           <FeatureTwo />
         </div>
         <div id="news" className="container mx-auto">
-          <NewsSection />
+          <NewsSection cobFarmPosts={cobFarmPosts} />
         </div>
         <div id="flexiblegameplay" className="container mx-auto">
           <FeatureThree />
