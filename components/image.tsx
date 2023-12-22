@@ -18,12 +18,12 @@ export function LoopExchangeLogo() {
 }
 export function WindMillBackground() {
     return (
-        <Image src={WindMill} alt="Windmill Area" layout='fill' objectFit='cover' />
+        <Image src={WindMill} alt="Windmill Area" fill={true} />
     )
 }
 export function FarmBackground() {
     return (
-        <Image src={Farm} alt="Cob's Farm" layout='fill' objectFit='cover' />
+        <Image src={Farm} alt="Cob's Farm" object-fit="cover" fill={true} />
     )
 }
 export function CobsFarmLogo() {

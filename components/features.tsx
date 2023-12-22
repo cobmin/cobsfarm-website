@@ -158,7 +158,7 @@ export function NewsSection({ cobFarmPosts }: NewsSectionProps) {
                                 {post.coverImage && (post.coverImage.startsWith('http') ?
                                     <img src={post.coverImage} className="rounded object-cover image-fill" alt="Entrance" />
                                     :
-                                    <Image src={`${baseUrl + post.coverImage}`} className="rounded object-cover" layout="fill" alt="Entrance" />
+                                    <Image src={`${baseUrl + post.coverImage}`} className="rounded object-cover" fill={true} alt="Entrance" />
                                 )}
                             </div>
                             <div className="pt-4 flex flex-col justify-between flex-grow">
@@ -215,7 +215,7 @@ export function FeatureThree() {
                     {features.map((feature, index) => (
                         <div key={index} className="bg-gray-800 rounded-lg p-4 flex flex-col">
                             <div className="relative h-48">
-                                <Image src={feature.image} layout="fill" objectFit="cover" className="absolute rounded-t-lg" alt={feature.title} />
+                                <Image src={feature.image} fill={true} className="absolute rounded-t-lg" alt={feature.title} />
                             </div>
                             <div className="pt-4">
                                 <h3 className="text-lg font-semibold pb-2">{feature.title}</h3>
@@ -270,7 +270,7 @@ export function FeatureFour() {
         { image: '/dungeon.png', emoji: "🚪", title: 'Dungeons', description: 'Delve deep into mysterious dungeons filled with unique loot, puzzles, and enemies waiting in the dark.' },
         { image: '/ComingSoon.png', emoji: "⚔️", title: 'PvP', description: 'Challenge other players in thrilling PvP combat. Prove your mettle and climb the leaderboards.' },
         { image: '/ComingSoon.png', emoji: "🏡", title: 'Ownership', description: 'Claim and customize your own piece of Cob\'s Farm. Show off your style and achievements.' },
-        { image: '/GoldFishRunning.gif', emoji: "👥", title: 'Community Events', description: 'Participate in special events to win exclusive rewards and strengthen your community ties.' }
+        { image: '/GoldFishRunning.png', emoji: "👥", title: 'Community Events', description: 'Participate in special events to win exclusive rewards and strengthen your community ties.' }
     ];
 
     return (
@@ -292,12 +292,13 @@ export function FeatureFour() {
 
                 <div className="flex flex-col items-center mb-4">
                     <div className="flex flex-col items-center mb-4">
-                        <div className="w-[800px] h-[500px] relative mb-4 overflow-hidden rounded">
+                        <div className="w-full relative mb-4 overflow-hidden rounded feature-image-container">
                             <Image
                                 src={features[activeFeature].image}
                                 alt={features[activeFeature].title}
-                                layout="fill"
-                                objectFit="cover" // This ensures the image will cover the entire area of the container, cropping if necessary
+                                layout="responsive"
+                                width={800}
+                                height={500}
                             />
                         </div>
                         <div className="text-center" style={{ maxWidth: '600px' }}>
