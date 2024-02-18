@@ -21,12 +21,22 @@ import { loopringWallet } from '../utils/loopringwallet';
 
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
+  [mainnet],
   [
-    mainnet,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : []),
-  ],
-  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID || "defaultApiKey" }),
-  publicProvider(),]
+    jsonRpcProvider({
+      rpc: (chain) => {
+        if (chain === mainnet) {
+          return {
+            http: 'https://mainneteth.loopring.io',
+          };
+        }
+
+        return {
+          http: '',
+        };
+      },
+    }),
+  ]
 );
 const projectId = process.env.NEXT_PUBLIC_PROJECT_ID ?? 'defaultProjectId';
 
@@ -35,7 +45,6 @@ const connectors = connectorsForWallets([
     groupName: 'Supported',
     wallets: [
       injectedWallet({ chains }),
-      // loopringWallet({ projectId, chains }),
       metaMaskWallet({ projectId, chains }),
       walletConnectWallet({ projectId, chains }),
     ],
