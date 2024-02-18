@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import '@rainbow-me/rainbowkit/styles.css';
-import { RainbowKitProvider, darkTheme, AvatarComponent, connectorsForWallets } from '@rainbow-me/rainbowkit';
+import { getDefaultWallets, RainbowKitProvider, darkTheme, AvatarComponent, connectorsForWallets } from '@rainbow-me/rainbowkit';
 import {
   injectedWallet,
   metaMaskWallet,
@@ -12,13 +12,42 @@ import {
   goerli,
   mainnet,
 } from 'wagmi/chains';
+import { LoopringAccountProvider } from '../context/account-context';
+import { LoopringUnlockProvider } from '../context/unlock-context';
 import { publicProvider } from 'wagmi/providers/public';
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 import Layout from '../components/layout';
 import { generateColorFromAddress } from '../utils';
 import { UserIcon } from '@heroicons/react/20/solid'
-import { loopringWallet } from '../utils/loopringwallet';
+import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 
+// const { chains, publicClient, webSocketPublicClient } = configureChains(
+//   [
+//     mainnet,
+//     ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : []),
+//   ],
+//   [alchemyProvider({ apiKey: process.env.ALCHEMY_ID || "defaultApiKey" }),
+//   publicProvider(),]
+// );
+// const projectId = process.env.NEXT_PUBLIC_PROJECT_ID ?? 'defaultProjectId';
+
+// const connectors = connectorsForWallets([
+//   {
+//     groupName: 'Supported',
+//     wallets: [
+//       injectedWallet({ chains }),
+//       metaMaskWallet({ projectId, chains }),
+//       walletConnectWallet({ projectId, chains }),
+//     ],
+//   },
+// ]);
+
+// const wagmiConfig = createConfig({
+//   autoConnect: false,
+//   connectors,
+//   publicClient,
+//   webSocketPublicClient,
+// });
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [mainnet],
@@ -38,24 +67,19 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
     }),
   ]
 );
-const projectId = process.env.NEXT_PUBLIC_PROJECT_ID ?? 'defaultProjectId';
 
-const connectors = connectorsForWallets([
-  {
-    groupName: 'Supported',
-    wallets: [
-      injectedWallet({ chains }),
-      metaMaskWallet({ projectId, chains }),
-      walletConnectWallet({ projectId, chains }),
-    ],
-  },
-]);
+const { connectors } = getDefaultWallets({
+  appName: 'Loopring SDK NextJS',
+  projectId:
+    process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID || 'YOUR_PROJECT_ID',
+  chains,
+});
 
 const wagmiConfig = createConfig({
-  autoConnect: false,
-  connectors,
+  autoConnect: true,
   publicClient,
   webSocketPublicClient,
+  connectors,
 });
 
 const CustomAvatar: AvatarComponent = ({ address, ensImage, size }) => {
@@ -80,11 +104,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         accentColorForeground: '#ccd0d7',
         overlayBlur: 'small',
       })} chains={chains} >
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </RainbowKitProvider>
-    </WagmiConfig>
+        <LoopringAccountProvider>
+          <LoopringUnlockProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </LoopringUnlockProvider>
+        </LoopringAccountProvider>
+      </RainbowKitProvider >
+    </WagmiConfig >
   );
 }
 export default MyApp;

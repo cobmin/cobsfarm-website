@@ -12,7 +12,7 @@ export default function Footer() {
                         <a href="https://twitter.com/CobsFarm" target="_blank" rel="noreferrer">
                             <TwitterLogo />
                         </a>
-                        <a href="https://discord.gg/BAGXJZVH4Y" target="_blank" rel="noreferrer">
+                        <a href="https://discord.gg/3cBP2UfGB4" target="_blank" rel="noreferrer">
                             <DiscordLogo />
                         </a>
                     </div>
@@ -27,10 +27,8 @@ export default function Footer() {
                 </div>
                 <div className=" md:mb-0 md:text-left sm:text-center">
                     <h2 className="text-lg font-semibold">Hosted On</h2>
-                    <div className="flex justify-center items-center">                        {/* <a href="https://twitter.com/CobsFarm" target="_blank" rel="noreferrer">
-                            <Loopring />
-                        </a> */}
-                        <a href="https://loopworms.io/DEV/LooperLands/LooperLandsGuide/">
+                    <div className="flex justify-center items-center">
+                        <a href="https://loopworms.io/DEV/LooperLands/LooperLandsGuide/" target="_blank" rel="noreferrer">
                             <LooperLandsLogo />
                         </a>
                     </div>

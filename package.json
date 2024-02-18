@@ -12,6 +12,7 @@
     "@dnd-kit/core": "^6.0.8",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "@loopexchange-labs/loopring-sdk": "^0.0.12",
     "@rainbow-me/rainbowkit": "^1.0.11",
     "html2canvas": "^1.4.1",
     "next": "^13.4.19",

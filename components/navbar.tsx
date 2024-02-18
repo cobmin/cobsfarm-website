@@ -2,6 +2,28 @@ import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { CobsFarmLogoNav } from './image'
+import { useEffect, useState, useMemo } from 'react';
+import { useAccount, useNetwork } from 'wagmi';
+import { useUnlockContext } from '../context/unlock-context';
+import { useAccountContext } from '../context/account-context';
+
+export function Index() {
+    const { isConnected, address, connector } = useAccount();
+    const { chain } = useNetwork();
+    const { unlock, isUnlocked } = useUnlockContext();
+    const { data: accountData } = useAccountContext();
+
+    const connected = useMemo(
+        () => isConnected && chain && !chain.unsupported,
+        [isConnected, chain]
+    );
+
+    useEffect(() => {
+        if (connected) {
+            unlock(); // Call unlock function when the wallet is connected
+        }
+    }, [connected, unlock]);
+}
 
 const navigation = [
     { name: 'Overview', href: '/#overview', current: false },
